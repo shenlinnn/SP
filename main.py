@@ -42,3 +42,22 @@ def number_pressed(input):
 ##print number_pressed('wonderful')
 #966337385
 
+def all_combinations(input):
+    input = str(input)
+
+    # base condition: if only one char, return all chars corresponding to the number
+    if len(input) == 1:
+        return keypad[input]
+    else:
+        first = keypad[input[0]]
+        prev = all_combinations(input[1:])
+        # add each of the char corresponds to first number to every combinations from the rest numbers
+        combined = map(lambda x: map(lambda y: x + y, prev), first)
+        # flatten the list
+        combined_flat = list(itertools.chain.from_iterable(combined))
+    return combined_flat
+
+##print all_combinations(23)
+#['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
+# test total number of possible combinations
+##print len(all_combinations(425)) == len(keypad['4']) * len(keypad['2']) * len(keypad['5'])
