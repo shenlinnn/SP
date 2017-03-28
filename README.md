@@ -9,7 +9,7 @@
 
 ### Import methods
 ##### In the python command line, type the following:
-> from main import count_key_press, number_pressed, all_combinations
+> from main import count_key_press, number_pressed, all_combinations, all_words
 
 ### Run methods in the command line
 ##### For Q1, count_key_press is the method used.
