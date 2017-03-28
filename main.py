@@ -61,3 +61,23 @@ def all_combinations(input):
 #['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
 # test total number of possible combinations
 ##print len(all_combinations(425)) == len(keypad['4']) * len(keypad['2']) * len(keypad['5'])
+
+def all_words(input):
+    input = str(input)
+    ## convert rtf to list of words
+    f = open("words.txt").readlines()
+    words_dict = [x.strip() for x in f]
+    chars = [keypad[x] for x in input]
+    matched = words_dict
+    result = []
+    for i in range(len(chars)):
+        key_char = chars[i]
+        for char in key_char:
+            result.extend([word for word in matched if word.startswith(char, i)])
+        matched = result
+        result = []
+    matched = filter(lambda x: len(x) == len(input), matched)
+    return matched
+
+##print all_words(4663)
+#['good', 'hood', 'home', 'gone', 'hone', 'goof', 'hoof']
