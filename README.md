@@ -18,3 +18,5 @@
 > number_pressed('hello') <br>
 ##### For Q3, all_combinations is the method used.
 > all_combinations(23) <br>
+##### For Q4, all_words is the method used.
+> all_words(4663) <br>
